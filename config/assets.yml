@@ -1,0 +1,7 @@
+javascripts:
+  application:
+    - public/js/main.js
+
+stylesheets:
+  application:
+    - public/css/main.css
