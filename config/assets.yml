@@ -5,4 +5,3 @@ javascripts:
 stylesheets:
     application:
         - public/css/main.css
-        - public/css/application.css
