@@ -1,7 +1,8 @@
 javascripts:
-  application:
-    - public/js/main.js
+    application:
+        - public/js/main.js
 
 stylesheets:
-  application:
-    - public/css/main.css
+    application:
+        - public/css/main.css
+        - public/css/application.css

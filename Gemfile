@@ -18,7 +18,7 @@ group :development do
   gem "thin"
   gem "racksh", :require => false
   gem "compass", :require => false
-  gem "modular-scale", :require => false
+  # gem "modular-scale", :require => false
 
   # asset management
   gem "jammit"
