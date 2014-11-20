@@ -56,8 +56,6 @@ GEM
     lumberjack (1.0.4)
     method_source (0.8.2)
     minitest (5.0.6)
-    modular-scale (2.0.5)
-      compass (>= 0.12.0)
     mongoid (3.1.6)
       activemodel (~> 3.2)
       moped (~> 1.4)
@@ -125,7 +123,6 @@ DEPENDENCIES
   jammit
   json
   minitest
-  modular-scale
   mongoid (~> 3.1.6)
   racksh
   sass

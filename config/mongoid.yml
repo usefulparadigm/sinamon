@@ -1,6 +1,6 @@
 development:
   sessions:
     default:
-      database: mongoid
+      database: sinamon_development
       hosts:
         - localhost:27017
