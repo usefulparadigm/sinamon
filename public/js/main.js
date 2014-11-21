@@ -47,11 +47,11 @@ var App = (function() {
             'click .delete': 'deleteEntry'
         },
         deleteEntry: function() {
-            this.model.destroy();
+            this.model.destroy(); // delete model
             return false;
         },
         initialize: function() {
-            this.listenTo(this.model, 'destroy', this.remove)
+            this.listenTo(this.model, 'destroy', this.remove); // call view.remove()
         },
         template: _.template('<%= title %> \
             <a href="#" class="delete"><span class="genericon genericon-trash"></span></a> \
@@ -59,9 +59,6 @@ var App = (function() {
         render: function() {
             $(this.el).html(this.template(this.model.attributes));
             return this;
-        },
-        remove: function() {
-            this.$el.remove();
         }
     });
     

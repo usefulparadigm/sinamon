@@ -2,7 +2,7 @@ Sinamon = Sinatra + Mongoid
 =====
 A simple webapp boilerplate based on Sinatra and Mongoid
 
-![Logo](http://usefulpa.s3.amazonaws.com/images/2014/cinnamon_roll.png)
+![Logo](http://usefulpa.s3.amazonaws.com/images/2014/sinamon-demo-screenshot.png)
 
 Usage
 -----
