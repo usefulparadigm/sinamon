@@ -10,6 +10,6 @@ class Entry
   
   # validates :title, present: true
   
-  default_scope desc(:created_at)
+  # default_scope asc(:created_at)
   def to_s; title end
 end

@@ -11,6 +11,12 @@ require 'mongoid'
 Dir.glob('./lib/**/*.rb').each { |file| require file  }
 Dir.glob('./{models,helpers,routes}/*.rb').each { |file| require file }
 
+# http://recipes.sinatrarb.com/p/middleware/rack_parser
+require 'rack/parser'
+use Rack::Parser, :parsers => { 
+  'application/json' => proc { |data| JSON.parse data }
+}
+
 config_file "./config/config.yml"
 # alias :settings :config
 

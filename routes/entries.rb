@@ -14,8 +14,8 @@ namespace '/entries' do
 
   # POST /entries
   post '/?' do
-    @entry = Entry.new(params[:entry])
-    @entry.save
+    # puts params.inspect
+    @entry = Entry.create(params)
     status 201
     @entry.to_json
   end
