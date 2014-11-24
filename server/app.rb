@@ -23,6 +23,7 @@ config_file "./config/config.yml"
 # main application file
 # http://www.sinatrarb.com/configuration.html
 # set :app_file, '../'
+set :public_folder, Proc.new { File.join(root, '../public') }
 
 # https://github.com/rkh/rack-protection#readme
 # set :protection, :except => [:remote_token, :frame_options]
@@ -66,6 +67,8 @@ end
 # end
 
 get '/' do
+  # @entries = Entry.all
+  # erb :index
   send_file File.join(settings.public_folder, 'index.html')
 end
 
