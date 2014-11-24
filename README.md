@@ -17,11 +17,11 @@ Defaults
 
 It's just defaults. You can change anything you like.
 
-* CSS UI: [Twitter Bootstrap](http://getbootstrap.com/) based on [H5BP](http://html5boilerplate.com/)
-* JavaScript MVC: [Backbone.js](http://backbonejs.org/)
-* SASS: [Compass](http://compass-style.org/)
-* Asset Packaging: [Jammit](http://documentcloud.github.io/jammit/)
-* Icon Font: [Genericons](http://genericons.com)
+* [Twitter Bootstrap](http://getbootstrap.com/) based on [H5BP](http://html5boilerplate.com/) for CSS UI
+* [Backbone.js](http://backbonejs.org/) for JavaScript MVC
+* [Compass](http://compass-style.org/) for SASS Authoring
+* [Jammit](http://documentcloud.github.io/jammit/) for Asset Packaging
+* [Genericons](http://genericons.com) for Icon Font
 
 
 References
