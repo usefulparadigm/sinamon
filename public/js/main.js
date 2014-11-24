@@ -1,5 +1,12 @@
 // main.js
 
+// Change Underscore's default delimiters
+// 'cause ERB-style delimiters aren't my cup of tea
+// http://documentcloud.github.io/underscore/#template
+_.templateSettings = {
+    interpolate: /\{\{(.+?)\}\}/g
+};
+
 var App = (function() {
 
     // Models
@@ -53,7 +60,7 @@ var App = (function() {
         initialize: function() {
             this.listenTo(this.model, 'destroy', this.remove); // call view.remove()
         },
-        template: _.template('<%= title %> \
+        template: _.template('{{title}} \
             <a href="#" class="delete"><span class="genericon genericon-trash"></span></a> \
         '),
         render: function() {
@@ -62,10 +69,24 @@ var App = (function() {
         }
     });
     
+    // Routers
+    var AppRouter = Backbone.Router.extend({
+        routes: {
+            '': 'index'
+        },
+        initialize: function() {
+            // initialize codes
+        },
+        index: function() {
+            var entries = new EntryList();
+            new EntriesView({el: '#entries', collection: entries});
+            entries.fetch({reset: true});
+        }
+    });
+    
     function init() {
-        var entries = new EntryList();
-        new EntriesView({el: '#entries', collection: entries});
-        entries.fetch({reset: true});
+        new AppRouter();
+        Backbone.history.start();
     };
    
     return {
