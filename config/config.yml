@@ -1,0 +1,10 @@
+# http://www.sinatrarb.com/contrib/config_file.html
+development:
+  foo: development
+  bar: bar
+test:
+  foo: test
+  bar: bar
+production:
+  foo: production
+  bar: bar
