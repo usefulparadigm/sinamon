@@ -8,8 +8,8 @@ require 'sinatra/namespace' # http://www.sinatrarb.com/contrib/namespace.html
 # require 'sinatra/json' # http://www.sinatrarb.com/contrib/json.html
 require 'sinatra/static_assets'
 require 'mongoid'
-Dir.glob('./lib/**/*.rb').each { |file| require file  }
-Dir.glob('./{models,helpers,routes}/*.rb').each { |file| require file }
+Dir.glob('./server/lib/**/*.rb').each { |file| require file  }
+Dir.glob('./server/{models,helpers,routes}/*.rb').each { |file| require file }
 
 # http://recipes.sinatrarb.com/p/middleware/rack_parser
 require 'rack/parser'
@@ -31,9 +31,9 @@ set :cache_enabled, false
 # enable :sessions
 
 configure :development do 
-  also_reload './models/*.rb'
-  also_reload './helpers/*.rb'
-  also_reload './routes/*.rb'
+  also_reload './server/models/*.rb'
+  also_reload './server/helpers/*.rb'
+  also_reload './server/routes/*.rb'
 end
 
 configure do
