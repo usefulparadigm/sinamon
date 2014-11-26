@@ -10,6 +10,7 @@ Usage
 	$ git clone && cd
 	$ bundle
 	$ foreman start (or thin start)
+    $ open http://localhost:5000
 
 
 Defaults
