@@ -40,6 +40,18 @@ configure do
   Mongoid.load!("./config/mongoid.yml")
 end
 
+# warden authentication
+require './config/warden'
+
+use Rack::Session::Cookie, 
+    :secret => "1j4VPiI1myxSgVW+Kw37sg==", # $ openssl rand -base64 16 
+    :expire_after => 2592000 #30 days in seconds 
+
+use Warden::Manager do |manager|
+  manager.default_strategies :password
+  manager.failure_app = Sinatra::Application
+end
+
 helpers do
   include ApplicationHelper
   # add your helpers here
@@ -57,14 +69,10 @@ error do
   'Sorry there was a nasty error - ' + env['sinatra.error'].name
 end
 
-# get '/gumby' do
-#   erb :gumby, :layout => false
-# end
-#
-# get '/login/?' do
-#   redirect '/' if warden.authenticated?
-#   erb :login, :layout => false
-# end
+get '/login/?' do
+  redirect '/' if warden.authenticated?
+  erb :login, :layout => false
+end
 
 get '/' do
   # @entries = Entry.all

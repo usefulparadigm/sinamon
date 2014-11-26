@@ -17,8 +17,8 @@ module ApplicationHelper
   end
   
   def authenticate
-    # warden.authenticate
-    # redirect '/login' unless warden.authenticated?
+    warden.authenticate
+    redirect '/login' unless warden.authenticated?
   end
 
   def pjax?
