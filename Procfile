@@ -1,3 +1,3 @@
-# guard: guard start
+web: bundle exec thin -R config.ru start -p $PORT
+# guard: bundle exec guard
 compass: compass watch
-web: bundle exec thin start
