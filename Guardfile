@@ -13,20 +13,17 @@
 #
 # Like usual, the Compass configuration path are relative to the :project_path
 
-# guard 'compass', :project_path => 'not_current_dir', :configuration_file => 'path/to/my/compass_config.rb'
 guard :compass
 
 guard :jammit do
-  watch(%r{^public/js/(.*)\.js$})
+  watch(%r{^app/scripts/(.*)\.js$})
   watch(%r{^public/css/(.*)\.css$})
 end
 
-# guard 'livereload' do
-#   watch(%r{app/views/.+\.(erb|haml|slim)$})
-#   watch(%r{app/helpers/.+\.rb})
-#   watch(%r{public/.+\.(css|js|html)})
-#   watch(%r{config/locales/.+\.yml})
-#   # Rails Assets Pipeline
-#   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
-# end
+guard 'livereload' do
+  watch(%r{server/views/.+\.(erb|haml|slim)$})
+  watch(%r{server/helpers/.+\.rb})
+  watch(%r{public/.+\.(css|js|html)})
+  # watch(%r{config/locales/.+\.yml})
+end
 

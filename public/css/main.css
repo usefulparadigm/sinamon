@@ -74,7 +74,7 @@ textarea {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-/* line 99, ../../app/styles/main.scss */
+/* line 98, ../../app/styles/main.scss */
 .ir {
   background-color: transparent;
   border: 0;
@@ -82,7 +82,7 @@ textarea {
   *text-indent: -9999px;
 }
 
-/* line 106, ../../app/styles/main.scss */
+/* line 105, ../../app/styles/main.scss */
 .ir:before {
   content: "";
   display: block;
@@ -90,13 +90,13 @@ textarea {
   height: 150%;
 }
 
-/* line 113, ../../app/styles/main.scss */
+/* line 112, ../../app/styles/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 118, ../../app/styles/main.scss */
+/* line 117, ../../app/styles/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -108,7 +108,7 @@ textarea {
   width: 1px;
 }
 
-/* line 129, ../../app/styles/main.scss */
+/* line 128, ../../app/styles/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -119,24 +119,24 @@ textarea {
   width: auto;
 }
 
-/* line 139, ../../app/styles/main.scss */
+/* line 138, ../../app/styles/main.scss */
 .invisible {
   visibility: hidden;
 }
 
-/* line 143, ../../app/styles/main.scss */
+/* line 142, ../../app/styles/main.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
 
-/* line 149, ../../app/styles/main.scss */
+/* line 148, ../../app/styles/main.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 153, ../../app/styles/main.scss */
+/* line 152, ../../app/styles/main.scss */
 .clearfix {
   *zoom: 1;
 }
@@ -145,7 +145,7 @@ textarea {
    Print styles
    ========================================================================== */
 @media print {
-  /* line 162, ../../app/styles/main.scss */
+  /* line 161, ../../app/styles/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -153,48 +153,48 @@ textarea {
     text-shadow: none !important;
   }
 
-  /* line 169, ../../app/styles/main.scss */
+  /* line 168, ../../app/styles/main.scss */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-  /* line 174, ../../app/styles/main.scss */
+  /* line 173, ../../app/styles/main.scss */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-  /* line 178, ../../app/styles/main.scss */
+  /* line 177, ../../app/styles/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 182, ../../app/styles/main.scss */
+  /* line 181, ../../app/styles/main.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-  /* line 188, ../../app/styles/main.scss */
+  /* line 187, ../../app/styles/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 194, ../../app/styles/main.scss */
+  /* line 193, ../../app/styles/main.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 198, ../../app/styles/main.scss */
+  /* line 197, ../../app/styles/main.scss */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-  /* line 203, ../../app/styles/main.scss */
+  /* line 202, ../../app/styles/main.scss */
   img {
     max-width: 100% !important;
   }
@@ -202,7 +202,7 @@ textarea {
   @page {
     margin: 0.5cm;
   }
-  /* line 211, ../../app/styles/main.scss */
+  /* line 210, ../../app/styles/main.scss */
   p,
   h2,
   h3 {
@@ -210,7 +210,7 @@ textarea {
     widows: 3;
   }
 
-  /* line 218, ../../app/styles/main.scss */
+  /* line 217, ../../app/styles/main.scss */
   h2,
   h3 {
     page-break-after: avoid;
