@@ -28,6 +28,7 @@ group :development do
 
   # guards
   gem 'guard', '~> 2.8'
+  # https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0
   gem "guard-jammit", :git => "git@github.com:sjoonk/guard-jammit.git"
   gem "guard-pow"
   gem "guard-compass"

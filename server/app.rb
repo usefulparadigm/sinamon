@@ -75,8 +75,8 @@ get '/login/?' do
 end
 
 get '/' do
-  # @entries = Entry.all
-  # erb :index
-  send_file File.join(settings.public_folder, 'index.html')
+  # send_file File.join(settings.public_folder, 'index.html')
+  @entries = Entry.all
+  erb :index
 end
 

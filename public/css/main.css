@@ -1,6 +1,6 @@
 @import url(../font/genericons.css);
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
-/* line 9, ../../assets/sass/main.scss */
+/* line 5, ../../app/styles/main.scss */
 html,
 button,
 input,
@@ -9,25 +9,25 @@ textarea {
   color: #222;
 }
 
-/* line 13, ../../assets/sass/main.scss */
+/* line 13, ../../app/styles/main.scss */
 html {
   font-size: 1em;
   line-height: 1.4;
 }
 
-/* line 18, ../../assets/sass/main.scss */
+/* line 18, ../../app/styles/main.scss */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
 }
 
-/* line 23, ../../assets/sass/main.scss */
+/* line 23, ../../app/styles/main.scss */
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
 }
 
-/* line 28, ../../assets/sass/main.scss */
+/* line 28, ../../app/styles/main.scss */
 hr {
   display: block;
   height: 1px;
@@ -37,7 +37,7 @@ hr {
   padding: 0;
 }
 
-/* line 40, ../../assets/sass/main.scss */
+/* line 37, ../../app/styles/main.scss */
 audio,
 canvas,
 img,
@@ -45,19 +45,19 @@ video {
   vertical-align: middle;
 }
 
-/* line 44, ../../assets/sass/main.scss */
+/* line 44, ../../app/styles/main.scss */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* line 50, ../../assets/sass/main.scss */
+/* line 50, ../../app/styles/main.scss */
 textarea {
   resize: vertical;
 }
 
-/* line 54, ../../assets/sass/main.scss */
+/* line 54, ../../app/styles/main.scss */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -74,7 +74,7 @@ textarea {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-/* line 99, ../../assets/sass/main.scss */
+/* line 99, ../../app/styles/main.scss */
 .ir {
   background-color: transparent;
   border: 0;
@@ -82,7 +82,7 @@ textarea {
   *text-indent: -9999px;
 }
 
-/* line 106, ../../assets/sass/main.scss */
+/* line 106, ../../app/styles/main.scss */
 .ir:before {
   content: "";
   display: block;
@@ -90,13 +90,13 @@ textarea {
   height: 150%;
 }
 
-/* line 113, ../../assets/sass/main.scss */
+/* line 113, ../../app/styles/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 118, ../../assets/sass/main.scss */
+/* line 118, ../../app/styles/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -108,7 +108,7 @@ textarea {
   width: 1px;
 }
 
-/* line 130, ../../assets/sass/main.scss */
+/* line 129, ../../app/styles/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -119,24 +119,24 @@ textarea {
   width: auto;
 }
 
-/* line 139, ../../assets/sass/main.scss */
+/* line 139, ../../app/styles/main.scss */
 .invisible {
   visibility: hidden;
 }
 
-/* line 144, ../../assets/sass/main.scss */
+/* line 143, ../../app/styles/main.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
 
-/* line 149, ../../assets/sass/main.scss */
+/* line 149, ../../app/styles/main.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 153, ../../assets/sass/main.scss */
+/* line 153, ../../app/styles/main.scss */
 .clearfix {
   *zoom: 1;
 }
@@ -145,7 +145,7 @@ textarea {
    Print styles
    ========================================================================== */
 @media print {
-  /* line 162, ../../assets/sass/main.scss */
+  /* line 162, ../../app/styles/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -153,57 +153,56 @@ textarea {
     text-shadow: none !important;
   }
 
-  /* line 170, ../../assets/sass/main.scss */
+  /* line 169, ../../app/styles/main.scss */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-  /* line 174, ../../assets/sass/main.scss */
+  /* line 174, ../../app/styles/main.scss */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-  /* line 178, ../../assets/sass/main.scss */
+  /* line 178, ../../app/styles/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 184, ../../assets/sass/main.scss */
+  /* line 182, ../../app/styles/main.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-  /* line 189, ../../assets/sass/main.scss */
+  /* line 188, ../../app/styles/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 194, ../../assets/sass/main.scss */
+  /* line 194, ../../app/styles/main.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 199, ../../assets/sass/main.scss */
+  /* line 198, ../../app/styles/main.scss */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-  /* line 203, ../../assets/sass/main.scss */
+  /* line 203, ../../app/styles/main.scss */
   img {
     max-width: 100% !important;
   }
 
   @page {
     margin: 0.5cm;
-}
-
-  /* line 213, ../../assets/sass/main.scss */
+  }
+  /* line 211, ../../app/styles/main.scss */
   p,
   h2,
   h3 {
@@ -211,7 +210,7 @@ textarea {
     widows: 3;
   }
 
-  /* line 219, ../../assets/sass/main.scss */
+  /* line 218, ../../app/styles/main.scss */
   h2,
   h3 {
     page-break-after: avoid;

@@ -1,7 +1,11 @@
 javascripts:
-    application:
-        - public/js/main.js
+    deps:
+        - app/scripts/vendor/underscore.js
+        - app/scripts/vendor/backbone.js
+    scripts:
+        - app/scripts/plugins.js
+        - app/scripts/main.js
 
 stylesheets:
-    application:
+    styles:
         - public/css/main.css
