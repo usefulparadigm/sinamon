@@ -1,0 +1,7 @@
+{
+  "generator-backbone": {
+    "requirejs": false,
+    "coffee": false,
+    "appName": "sinamon"
+  }
+}

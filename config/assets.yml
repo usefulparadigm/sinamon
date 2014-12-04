@@ -1,3 +1,7 @@
+# http://documentcloud.github.io/jammit/
+
+compress_assets: on #off
+
 javascripts:
     deps:
         - app/scripts/vendor/underscore.js
@@ -5,6 +9,10 @@ javascripts:
     scripts:
         - app/scripts/plugins.js
         - app/scripts/main.js
+        - app/scripts/models/*.js
+        - app/scripts/collections/*.js
+        - app/scripts/views/*.js
+        - app/scripts/routes/*.js
 
 stylesheets:
     styles:
