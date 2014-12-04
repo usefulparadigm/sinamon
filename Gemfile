@@ -27,9 +27,11 @@ group :development do
   gem "coffee-script"
 
   # guards
-  gem "guard-jammit"
+  gem 'guard', '~> 2.8'
+  gem "guard-jammit", :git => "git@github.com:sjoonk/guard-jammit.git"
   gem "guard-pow"
   gem "guard-compass"
+  gem "guard-livereload"
 end  
 
 group :test do

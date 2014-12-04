@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:sjoonk/guard-jammit.git
+  revision: 2f6a26f4a3403530c3990dd9086912862bab4694
+  specs:
+    guard-jammit (1.0.1)
+      guard (>= 1.1.0)
+      jammit
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,12 +41,15 @@ GEM
       sass (>= 3.2, < 3.5)
     cssmin (1.0.3)
     daemons (1.1.9)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
     ffi (1.9.6)
     formatador (0.2.5)
-    guard (2.8.2)
+    guard (2.10.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -47,19 +58,21 @@ GEM
     guard-compass (1.1.0)
       compass (>= 0.10.5)
       guard (~> 2.0)
-    guard-jammit (1.0.1)
-      guard (>= 1.1.0)
-      jammit
+    guard-livereload (2.4.0)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      multi_json (~> 1.8)
     guard-pow (2.0.0)
       guard (~> 2.0)
     hitimes (1.2.2)
+    http_parser.rb (0.6.0)
     i18n (0.6.11)
     jammit (0.6.6)
       cssmin (>= 1.0.3)
       jsmin (>= 1.0.1)
     jsmin (1.0.1)
     json (1.8.1)
-    listen (2.8.1)
+    listen (2.8.3)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -130,8 +143,10 @@ DEPENDENCIES
   coffee-script
   compass
   erubis
+  guard (~> 2.8)
   guard-compass
-  guard-jammit
+  guard-jammit!
+  guard-livereload
   guard-pow
   jammit
   json
