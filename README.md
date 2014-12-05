@@ -12,6 +12,6 @@ Usage
 	$ git clone && cd
 	$ bundle
 	$ thin start
-    $ open http://localhost:5000
+    $ open http://localhost:3000
 
 
