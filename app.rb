@@ -20,8 +20,6 @@ use Rack::Parser, :parsers => {
 config_file "./config/config.yml"
 # alias :settings :config
 
-# comment when used independently
-set :static, false
 set :public_folder, Proc.new { File.join(root, '../public') }
 
 # https://github.com/rkh/rack-protection#readme

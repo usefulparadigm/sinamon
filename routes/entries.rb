@@ -4,6 +4,8 @@ namespace '/entries' do
 
   before do
     content_type :json
+    # headers 'Access-Control-Allow-Origin' => '*',
+    #         'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
   end
 
   # GET /entries

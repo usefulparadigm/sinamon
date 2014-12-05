@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-
 gem "sinatra"
 gem "sinatra-contrib"
 # gem "rack-cache"
 gem "rack-parser"
+gem "rack-cors"
 gem "json"
 gem "sinatra-static-assets"
 # The minimum version of MongoDB is 2.2.0.

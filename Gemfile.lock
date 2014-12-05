@@ -26,6 +26,7 @@ GEM
     multi_json (1.10.1)
     origin (1.1.0)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-parser (0.6.1)
       rack
     rack-protection (1.5.3)
@@ -70,6 +71,7 @@ DEPENDENCIES
   json
   minitest
   mongoid (~> 3.1.6)
+  rack-cors
   rack-parser
   racksh
   sinatra
