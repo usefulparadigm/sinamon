@@ -15,8 +15,3 @@ Usage
     $ open http://localhost:5000
 
 
-References
------
-
-* [Sinatra](http://www.sinatrarb.com/)
-* [Mongoid](http://mongoid.org/en/mongoid/index.html)
