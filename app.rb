@@ -20,9 +20,9 @@ use Rack::Parser, :parsers => {
 config_file "./config/config.yml"
 # alias :settings :config
 
-# main application file
-# http://www.sinatrarb.com/configuration.html
-set :app_file, '../'
+# comment when used independently
+set :static, false
+set :public_folder, Proc.new { File.join(root, '../public') }
 
 # https://github.com/rkh/rack-protection#readme
 # set :protection, :except => [:remote_token, :frame_options]
@@ -39,13 +39,25 @@ configure do
   Mongoid.load!("./config/mongoid.yml")
 end
 
+# warden authentication
+require './config/warden'
+
+use Rack::Session::Cookie, 
+    :secret => "PLACEHOLDER FOR SECRET", # $ openssl rand -base64 16 
+    :expire_after => 2592000 #30 days in seconds 
+
+use Warden::Manager do |manager|
+  manager.default_strategies :password
+  manager.failure_app = Sinatra::Application
+end
+
 helpers do
   include ApplicationHelper
   # add your helpers here
 end
 
 before do
-  authenticate unless request.path_info == '/login'
+  # authenticate unless request.path_info == '/login'
 end
 
 not_found do
@@ -55,3 +67,14 @@ end
 error do
   'Sorry there was a nasty error - ' + env['sinatra.error'].name
 end
+
+get '/login/?' do
+  redirect '/' if warden.authenticated?
+  erb :login, :layout => false
+end
+
+get '/' do
+  # send_file File.join(settings.public_folder, 'index.html')
+  erb :index
+end
+

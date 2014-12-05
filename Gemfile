@@ -18,21 +18,6 @@ gem "erubis"
 group :development do
   gem "thin"
   gem "racksh", :require => false
-  gem "compass", :require => false
-  # gem "modular-scale", :require => false
-
-  # asset management
-  gem "jammit"
-  gem "sass"
-  gem "coffee-script"
-
-  # guards
-  gem 'guard', '~> 2.8'
-  # https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0
-  gem "guard-jammit", :git => "git@github.com:sjoonk/guard-jammit.git"
-  gem "guard-pow"
-  gem "guard-compass"
-  gem "guard-livereload"
 end  
 
 group :test do
