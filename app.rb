@@ -8,8 +8,8 @@ require 'sinatra/namespace' # http://www.sinatrarb.com/contrib/namespace.html
 # require 'sinatra/json' # http://www.sinatrarb.com/contrib/json.html
 require 'sinatra/static_assets'
 require 'mongoid'
-Dir.glob('./lib/**/*.rb').each { |file| require file  }
-Dir.glob('./{models,helpers,routes}/*.rb').each { |file| require file }
+Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
+Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,routes}/*.rb')).each { |file| require file }
 
 # http://recipes.sinatrarb.com/p/middleware/rack_parser
 require 'rack/parser'
@@ -17,7 +17,7 @@ use Rack::Parser, :parsers => {
   'application/json' => proc { |data| JSON.parse data }
 }
 
-config_file "./config/config.yml"
+config_file File.join(File.dirname(__FILE__), './config/config.yml')
 # alias :settings :config
 
 set :public_folder, Proc.new { File.join(root, '../public') }
@@ -28,17 +28,17 @@ set :cache_enabled, false
 # enable :sessions
 
 configure :development do 
-  also_reload './models/*.rb'
-  also_reload './helpers/*.rb'
-  also_reload './routes/*.rb'
+  also_reload File.join(File.dirname(__FILE__), './models/*.rb')
+  also_reload File.join(File.dirname(__FILE__), './helpers/*.rb')
+  also_reload File.join(File.dirname(__FILE__), './routes/*.rb')
 end
 
 configure do
-  Mongoid.load!("./config/mongoid.yml")
+  Mongoid.load!(File.join(File.dirname(__FILE__), './config/mongoid.yml'))
 end
 
 # warden authentication
-require './config/warden'
+require_relative './config/warden'
 
 use Rack::Session::Cookie, 
     :secret => "PLACEHOLDER FOR SECRET", # $ openssl rand -base64 16 
