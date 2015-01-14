@@ -14,6 +14,7 @@ gem "bcrypt"
 gem "static_model"
 gem "erubis"
 # gem "dotenv"
+gem "kaminari", :github => "amatsuda/kaminari"
 
 group :development do
   gem "thin"

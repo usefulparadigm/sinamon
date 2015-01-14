@@ -8,6 +8,7 @@ require 'sinatra/namespace' # http://www.sinatrarb.com/contrib/namespace.html
 # require 'sinatra/json' # http://www.sinatrarb.com/contrib/json.html
 require 'sinatra/static_assets'
 require 'mongoid'
+require 'kaminari/sinatra'
 Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
 Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,routes}/*.rb')).each { |file| require file }
 
