@@ -36,6 +36,10 @@ end
 
 configure do
   Mongoid.load!(File.join(File.dirname(__FILE__), './config/mongoid.yml'))
+  # https://github.com/amatsuda/kaminari
+  Kaminari.configure do |config|
+    config.default_per_page = 10
+  end
 end
 
 # warden authentication
