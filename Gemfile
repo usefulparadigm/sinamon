@@ -19,6 +19,7 @@ gem "kaminari", :github => "amatsuda/kaminari"
 group :development do
   gem "thin"
   gem "racksh", :require => false
+  gem "foreman", :require => false
 end  
 
 group :test do

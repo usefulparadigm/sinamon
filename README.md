@@ -10,8 +10,8 @@ Usage
 -----
 
 	$ git clone && cd
-	$ bundle
-	$ thin start
-    $ open http://localhost:3000
+	$ bundle install
+	$ foreman start
+  $ open http://localhost:5000
 
 
