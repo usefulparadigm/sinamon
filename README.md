@@ -11,7 +11,7 @@ Usage
 
 	$ git clone && cd
 	$ bundle install
-	$ foreman start
-  $ open http://localhost:5000
+	$ bundle exec thin start
+  $ open http://localhost:3000
 
 
