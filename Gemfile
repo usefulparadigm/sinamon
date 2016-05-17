@@ -7,14 +7,15 @@ gem "rack-parser"
 gem "rack-cors"
 gem "json"
 gem "sinatra-static-assets"
-# The minimum version of MongoDB is 2.2.0.
-gem "mongoid", "~> 3.1.6"
+gem "mongoid", "~> 4.0.0"
 gem "warden"
 gem "bcrypt"
 gem "static_model"
 gem "erubis"
 # gem "dotenv"
 gem "kaminari", :github => "amatsuda/kaminari"
+gem "padrino-helpers" # to use kaminari's pagination helpers with Sinatra
+gem "grape"
 
 group :development do
   gem "thin"

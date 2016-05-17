@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/reloader' if development?
@@ -10,7 +9,13 @@ require 'sinatra/static_assets'
 require 'mongoid'
 require 'kaminari/sinatra'
 Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
-Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,routes}/*.rb')).each { |file| require file }
+Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,api}/*.rb')).each { |file| require file }
+
+configure :development do 
+  also_reload File.join(File.dirname(__FILE__), './models/*.rb')
+  also_reload File.join(File.dirname(__FILE__), './helpers/*.rb')
+  also_reload File.join(File.dirname(__FILE__), './api/*.rb')
+end
 
 # http://recipes.sinatrarb.com/p/middleware/rack_parser
 require 'rack/parser'
@@ -27,12 +32,9 @@ set :public_folder, Proc.new { File.join(root, '../public') }
 # set :protection, :except => [:remote_token, :frame_options]
 set :cache_enabled, false
 # enable :sessions
-
-configure :development do 
-  also_reload File.join(File.dirname(__FILE__), './models/*.rb')
-  also_reload File.join(File.dirname(__FILE__), './helpers/*.rb')
-  also_reload File.join(File.dirname(__FILE__), './routes/*.rb')
-end
+use Rack::Session::Cookie, 
+    :secret => "PLACEHOLDER FOR SECRET", # $ openssl rand -base64 16 
+    :expire_after => 2592000 #30 days in seconds 
 
 configure do
   Mongoid.load!(File.join(File.dirname(__FILE__), './config/mongoid.yml'))
@@ -44,10 +46,6 @@ end
 
 # warden authentication
 require_relative './config/warden'
-
-use Rack::Session::Cookie, 
-    :secret => "PLACEHOLDER FOR SECRET", # $ openssl rand -base64 16 
-    :expire_after => 2592000 #30 days in seconds 
 
 use Warden::Manager do |manager|
   manager.default_strategies :password

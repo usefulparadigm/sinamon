@@ -1,4 +1,5 @@
 require './app'
+require './api/base'
 require 'rack/cors'
 
 # https://github.com/cyu/rack-cors
@@ -22,4 +23,6 @@ use Rack::Cors do
   end
 end
 
-run Sinatra::Application 
+# map('/api') { run API }
+# run Sinatra::Application
+run Rack::Cascade.new [API::Base, Sinatra::Application]
