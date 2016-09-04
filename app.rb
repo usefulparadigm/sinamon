@@ -8,6 +8,10 @@ require 'sinatra/namespace' # http://www.sinatrarb.com/contrib/namespace.html
 require 'sinatra/static_assets'
 require 'mongoid'
 require 'kaminari/sinatra'
+require 'omniauth/facebook'
+require "dotenv"
+Dotenv.load
+
 Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
 Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,api}/*.rb')).each { |file| require file }
 
@@ -44,6 +48,11 @@ configure do
   end
 end
 
+# https://github.com/mkdynamic/omniauth-facebook
+use OmniAuth::Builder do
+  provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+end
+
 # warden authentication
 require_relative './config/warden'
 
@@ -72,6 +81,19 @@ end
 get '/login/?' do
   redirect '/' if warden.authenticated?
   erb :login, :layout => false
+end
+
+# callback for omniauth-facebook
+# https://github.com/omniauth/omniauth/wiki
+get '/auth/facebook/callback' do
+  auth_hash = env['omniauth.auth'] # => OmniAuth::AuthHash
+  user = User.find_or_create_by(uid: auth_hash['uid']) do |u|
+    u.email = auth_hash['email']
+    u.name = auth_hash['info']['name']
+    u.nickname = auth_hash['info']['nickname']
+  end
+  warden.set_user user
+  redirect to('/')  
 end
 
 get '/' do

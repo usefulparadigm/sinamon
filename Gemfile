@@ -12,10 +12,12 @@ gem "warden"
 gem "bcrypt"
 gem "static_model"
 gem "erubis"
-# gem "dotenv"
+gem "dotenv"
 gem "kaminari", :github => "amatsuda/kaminari"
 gem "padrino-helpers" # to use kaminari's pagination helpers with Sinatra
 gem "grape"
+gem "omniauth-facebook"
+
 
 group :development do
   gem "thin"

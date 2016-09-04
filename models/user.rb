@@ -8,6 +8,10 @@ class User
   # field :username, type: String
   field :email, type: String
   field :password_hash, type: String
+  # https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema
+  field :uid, type: String
+  field :name, type: String
+  field :nickname, type: String
   
   def password
     @password ||= Password.new(password_hash)
