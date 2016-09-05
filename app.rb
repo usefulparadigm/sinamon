@@ -96,8 +96,13 @@ get '/auth/facebook/callback' do
   redirect to('/')  
 end
 
-# The default behavior is to redirect to `/auth/failure` except in the case of
-# a development `RACK_ENV`, in which case an exception will be raised.
+# OmniAuth failure callback
+# https://github.com/omniauth/omniauth/wiki/FAQ#omniauthfailureendpoint-does-not-redirect-in-development-mode
+get '/auth/failure' do
+  flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+  redirect '/'
+end
+
 get '/auth/failure' do
   flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
   redirect '/'
