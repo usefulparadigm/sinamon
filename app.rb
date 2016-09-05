@@ -40,14 +40,6 @@ use Rack::Session::Cookie,
     :secret => "PLACEHOLDER FOR SECRET", # $ openssl rand -base64 16 
     :expire_after => 2592000 #30 days in seconds 
 
-configure do
-  Mongoid.load!(File.join(File.dirname(__FILE__), './config/mongoid.yml'))
-  # https://github.com/amatsuda/kaminari
-  Kaminari.configure do |config|
-    config.default_per_page = 10
-  end
-end
-
 # https://github.com/mkdynamic/omniauth-facebook
 use OmniAuth::Builder do
   provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
@@ -59,6 +51,14 @@ require_relative './config/warden'
 use Warden::Manager do |manager|
   manager.default_strategies :password
   manager.failure_app = Sinatra::Application
+end
+
+configure do
+  Mongoid.load!(File.join(File.dirname(__FILE__), './config/mongoid.yml'))
+  # https://github.com/amatsuda/kaminari
+  Kaminari.configure do |config|
+    config.default_per_page = 10
+  end
 end
 
 helpers do
@@ -95,6 +95,14 @@ get '/auth/facebook/callback' do
   warden.set_user user
   redirect to('/')  
 end
+
+# The default behavior is to redirect to `/auth/failure` except in the case of
+# a development `RACK_ENV`, in which case an exception will be raised.
+get '/auth/failure' do
+  flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+  redirect '/'
+end
+
 
 get '/' do
   # send_file File.join(settings.public_folder, 'index.html')
