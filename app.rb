@@ -99,15 +99,9 @@ end
 # OmniAuth failure callback
 # https://github.com/omniauth/omniauth/wiki/FAQ#omniauthfailureendpoint-does-not-redirect-in-development-mode
 get '/auth/failure' do
-  flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+  # flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
   redirect '/'
 end
-
-get '/auth/failure' do
-  flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
-  redirect '/'
-end
-
 
 get '/' do
   # send_file File.join(settings.public_folder, 'index.html')
