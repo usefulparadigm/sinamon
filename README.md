@@ -17,3 +17,7 @@ Usage
   $ open http://localhost:3000
 
 
+RESTful API
+-----
+
+* Endpoint(default): /api/vi/
