@@ -20,4 +20,4 @@ Usage
 RESTful API
 -----
 
-* Endpoint(default): /api/vi/
+* Endpoint(default): /api/v1/
