@@ -1,25 +1,26 @@
 require 'bundler/setup'
 require 'sinatra'
-require 'sinatra/reloader' if development?
+# require 'sinatra/reloader' if development?
 require 'sinatra/content_for'
 require 'sinatra/config_file'
 require 'sinatra/namespace' # http://www.sinatrarb.com/contrib/namespace.html
-# require 'sinatra/json' # http://www.sinatrarb.com/contrib/json.html
+require 'sinatra/json' # http://www.sinatrarb.com/contrib/json.html
 require 'sinatra/static_assets'
 require 'mongoid'
-require 'kaminari/sinatra'
+# require 'kaminari/sinatra'
+require 'kaminari/mongoid'
 require 'omniauth/facebook'
 require "dotenv"
 Dotenv.load
 
 Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
-Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,api}/*.rb')).each { |file| require file }
+Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,resources}/*.rb')).each { |file| require file }
 
-configure :development do 
-  also_reload File.join(File.dirname(__FILE__), './models/*.rb')
-  also_reload File.join(File.dirname(__FILE__), './helpers/*.rb')
-  also_reload File.join(File.dirname(__FILE__), './api/*.rb')
-end
+# configure :development do
+#   also_reload File.join(File.dirname(__FILE__), './models/*.rb')
+#   also_reload File.join(File.dirname(__FILE__), './helpers/*.rb')
+#   also_reload File.join(File.dirname(__FILE__), './resources/*.rb')
+# end
 
 # http://recipes.sinatrarb.com/p/middleware/rack_parser
 require 'rack/parser'
@@ -77,6 +78,11 @@ end
 error do
   'Sorry there was a nasty error - ' + env['sinatra.error'].name
 end
+
+## logger
+# def logger
+#   @logger ||= Logger.new(STDOUT)
+# end
 
 get '/login/?' do
   redirect '/' if warden.authenticated?

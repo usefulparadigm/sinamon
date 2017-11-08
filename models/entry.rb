@@ -5,10 +5,9 @@ class Entry
   include Mongoid::Timestamps
 
   field :title, type: String
-  field :excerpt, type: String
   field :body, type: String
   
-  # validates :title, present: true
+  validates_presence_of :title
   
   # default_scope asc(:created_at)
   def to_s; title end

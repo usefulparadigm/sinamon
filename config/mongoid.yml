@@ -1,6 +1,14 @@
 development:
-  sessions:
+  clients:
     default:
-      database: sinamon_development
+      database: sinamon
+      hosts:
+        - localhost:27017
+  # options:
+  #   raise_not_found_error: false
+production:
+  clients:
+    default:
+      database: sinamon
       hosts:
         - localhost:27017

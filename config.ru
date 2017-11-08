@@ -1,7 +1,6 @@
 require './app'
-require './api/base'
-require 'rack/cors'
 
+require 'rack/cors'
 # https://github.com/cyu/rack-cors
 use Rack::Cors do
   allow do
@@ -23,6 +22,14 @@ use Rack::Cors do
   end
 end
 
-# map('/api') { run API }
-# run Sinatra::Application
-run Rack::Cascade.new [API::Base, Sinatra::Application]
+require 'rack/parser'
+# https://github.com/achiu/rack-parser
+use Rack::Parser, :parsers => {
+  'application/json' => proc { |body| JSON.parse(body, symbolize_names: true) }
+}
+
+map('/api') { 
+  run Resource::Entries 
+}
+run Sinatra::Application
+# run Rack::Cascade.new [API::Base, Sinatra::Application]
