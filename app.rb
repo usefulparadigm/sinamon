@@ -15,6 +15,7 @@ Dotenv.load
 
 Dir.glob(File.join(File.dirname(__FILE__), 'lib/**/*.rb')).each { |file| require file  }
 Dir.glob(File.join(File.dirname(__FILE__), '{models,helpers,resources}/*.rb')).each { |file| require file }
+Dir.glob(File.join(File.dirname(__FILE__), 'config/initializers/*.rb')).each { |file| require file  }
 
 # configure :development do
 #   also_reload File.join(File.dirname(__FILE__), './models/*.rb')
