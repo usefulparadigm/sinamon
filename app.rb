@@ -104,6 +104,12 @@ get '/auth/facebook/callback' do
 end
 
 # OmniAuth failure callback
+
+# https://github.com/omniauth/omniauth/wiki/FAQ#omniauthfailureendpoint-does-not-redirect-in-development-mode
+OmniAuth.config.on_failure = Proc.new { |env|
+  OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+}
+
 # https://github.com/omniauth/omniauth/wiki/FAQ#omniauthfailureendpoint-does-not-redirect-in-development-mode
 get '/auth/failure' do
   # flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
