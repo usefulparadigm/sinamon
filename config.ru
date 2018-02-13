@@ -29,7 +29,7 @@ use Rack::Parser, :parsers => {
 }
 
 map('/api') { 
-  run Resource::Entries 
+  run API::Entries 
 }
 run Sinatra::Application
 # run Rack::Cascade.new [API::Base, Sinatra::Application]

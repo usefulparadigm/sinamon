@@ -1,7 +1,7 @@
-# resoureces/base.rb
+# api/base.rb
 require 'json'
 
-module Resource
+module API
   class Base < Sinatra::Base
     set :method_override, true # enable HTTP POST _method parameter hack
     # set :show_exceptions, false # disable classy error pages

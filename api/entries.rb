@@ -1,6 +1,6 @@
-# resources/entries.rb
+# api/entries.rb
 
-module Resource
+module API
   class Entries < Base
 
     ## GET /entries - return entries
