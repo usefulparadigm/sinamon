@@ -9,7 +9,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    ansi (1.5.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -54,7 +53,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    minitest (5.10.3)
+    minitest (5.11.3)
     mongo (2.4.3)
       bson (>= 4.2.1, < 5.0.0)
     mongoid (5.1.6)
@@ -124,8 +123,6 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    turn (0.9.6)
-      ansi
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -159,8 +156,7 @@ DEPENDENCIES
   sinatra-static-assets
   static_model
   thin
-  turn
   warden
 
 BUNDLED WITH
-   1.12.1
+   1.16.1
