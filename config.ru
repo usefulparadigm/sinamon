@@ -25,7 +25,7 @@ end
 require 'rack/parser'
 # https://github.com/achiu/rack-parser
 use Rack::Parser, :parsers => {
-  'application/json' => proc { |body| JSON.parse(body, symbolize_names: true) }
+  'application/json' => proc { |body| JSON.parse(body, symbolize_names: false) }
 }
 
 map('/api') { 

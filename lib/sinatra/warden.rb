@@ -77,7 +77,9 @@ module Sinatra
     
     def self.registered(app)
       app.helpers Warden::Helpers
-      
+
+      # Classic authentication
+
       app.post '/unauthenticated/?' do
         status 401
         # warden.custom_failure!
@@ -90,8 +92,42 @@ module Sinatra
       end
       
       app.get '/logout/?' do
-        env['warden'].logout
+        warden.logout
         redirect '/'
+      end
+
+      # SPA authentication
+      
+      app.post '/unauthenticated_auth/?' do
+        status 401
+        warden.custom_failure!
+        {auth: 'nok'}.to_json
+      end
+
+      app.post '/auth/?', :provides => :json do
+        warden.authenticate! :action => 'unauthenticated_auth'
+        {
+          auth: 'ok',
+          id: user.id,
+          name: user.name,
+          email: user.email
+        }.to_json
+      end
+      
+      # check auth status
+      app.get '/auth/?', :provides => :json do
+        warden.authenticate! :action => 'unauthenticated_auth'
+        {
+          auth: 'ok',
+          id: user.id,
+          name: user.name,
+          email: user.email
+        }.to_json
+      end 
+
+      app.post '/logout/?', :provides => :json  do
+        warden.logout
+        {auth: 'nok'}.to_json
       end
       
     end
