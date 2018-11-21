@@ -21,3 +21,17 @@ Warden::Strategies.add(:password) do
     end    
   end
 end
+
+Warden::Strategies.add(:facebook) do
+  def authenticate!
+    auth_hash = env['omniauth.auth'] # => OmniAuth::AuthHash
+    user = User.find_or_create_by(uid: auth_hash['uid']) do |u|
+      u.email = auth_hash['info']['email']
+      u.name = auth_hash['info']['name']
+      u.nickname = auth_hash['info']['nickname']
+    end
+    success!(user)
+  rescue
+    fail!("Could not log in")
+  end
+end

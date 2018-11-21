@@ -93,13 +93,7 @@ end
 # callback for omniauth-facebook
 # https://github.com/omniauth/omniauth/wiki
 get '/auth/facebook/callback' do
-  auth_hash = env['omniauth.auth'] # => OmniAuth::AuthHash
-  user = User.find_or_create_by(uid: auth_hash['uid']) do |u|
-    u.email = auth_hash['email']
-    u.name = auth_hash['info']['name']
-    u.nickname = auth_hash['info']['nickname']
-  end
-  warden.set_user user
+  warden.authenticate :facebook
   redirect to('/')  
 end
 
