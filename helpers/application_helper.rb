@@ -69,13 +69,20 @@ module ApplicationHelper
   def csrf_meta_tag
     %{<meta name="csrf-token" content="#{csrf_token}">}
   end
-  
-  def json_status(code, reason)
-    status code
-    {
-      :status => code,
-      :reason => reason
-    }.to_json
+
+  # https://coderwall.com/p/y7uvbw/static-asset-cache-buster
+  def cache_buster
+    `git rev-parse --short HEAD`.chomp
   end
+
+  # Moved to api_helper  
+  # def json_status(code, reason)
+  #   content_type :json
+  #   status code
+  #   {
+  #     :status => code,
+  #     :reason => reason
+  #   }.to_json
+  # end
 
 end
