@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "sinatra"
+gem "sinatra", ">= 2.0.2"
 gem "sinatra-contrib"
 # gem "rack-cache"
 gem "rack-parser"
@@ -15,7 +15,7 @@ gem "erubis"
 gem "dotenv"
 gem "kaminari-mongoid"
 # gem "kaminari-sinatra" # no need because not use paginator helper anymore!
-gem "grape"
+gem "grape", ">= 1.1.0"
 gem "omniauth-facebook"
 
 group :development do
