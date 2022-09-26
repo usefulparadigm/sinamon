@@ -1,6 +1,6 @@
 # config.ru
-require_relative './config/boot'
-require_relative './config/middlewares'
+require_relative './server/config/boot'
+require_relative './server/config/middlewares'
 self.extend Middlewares
 
 map('/api/v1') {
@@ -8,5 +8,5 @@ map('/api/v1') {
   # run Rack::Cascade.new [API::Entries, API::Feeds]
 }
 
-require './app'
+require './server/app'
 run Sinatra::Application
